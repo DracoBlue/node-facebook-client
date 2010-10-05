@@ -50,7 +50,7 @@ This small example uses the FacebookClient class to retrieve the name of a user.
 
 Doing a call against the graph server.
 
-    client.graphCall()(function(access_token, expires) {
+    client.graphCall(path, params)(function(access_token, expires) {
         // 
     });
 
