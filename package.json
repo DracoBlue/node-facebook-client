@@ -1,0 +1,37 @@
+{
+    "name" : "facebook-client",
+    "version": "1.0.0",
+
+    "engines": { "node": ">= 0.2.0" },
+
+    "homepage": "http://dracoblue.net/c/node-facebook-client/",
+
+    "author": "DracoBlue <JanS@DracoBlue.de>",
+    "contributors": [
+        { "name": "DracoBlue", "email": "JanS@DracoBlue.de" }
+    ],
+
+    "keywords": ["facebook", "oauth", "client"],
+
+    "directories" : {
+    },
+
+    "main" : "lib/facebook-client/index.js",
+
+    "bin" : {
+    },
+
+    "repository": {
+        "type": "git",
+        "web": "http://github.com/DracoBlue/node-facebook-client.git"
+    },
+
+    "bugs": {
+        "mail": "spludo@googlegroups.com",
+        "web": "http://github.com/DracoBlue/node-facebook-client/issues"
+    },
+
+    "licenses" : [
+        { "type" : "MIT",  "url" : "http://github.com/DracoBlue/node-facebook-client/blob/master/LICENSE" }
+    ]
+}
