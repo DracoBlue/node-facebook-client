@@ -6,6 +6,8 @@
 
     "homepage": "http://dracoblue.net/c/node-facebook-client/",
 
+    "description": "A javascript (nodejs) implementation of facebook's client for oauth and rest+graph api.",
+
     "author": "DracoBlue <JanS@DracoBlue.de>",
     "contributors": [
         { "name": "DracoBlue", "email": "JanS@DracoBlue.de" }
@@ -27,7 +29,6 @@
     },
 
     "bugs": {
-        "mail": "spludo@googlegroups.com",
         "web": "http://github.com/DracoBlue/node-facebook-client/issues"
     },
 
