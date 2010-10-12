@@ -119,10 +119,20 @@ _only_ available in case of a session, which got initialized by an access_token.
 
 Retrieving an AccessToken with the given parameters.
 
-    client.getAccessToken(access_params)(function(access_token, expires) {
-        // 
-    });
-    
+        var FacebookClient = require('node-facebook-client').FacebookClient,
+            facebook_client = new FacebookClient('foo', 'bar');
+
+        facebook_client.getAccessToken({
+                redirect_uri: apis.auth.facebook.callback,
+                code: req.param('code'),
+                scope: 'offline_access,read_stream,publish_stream'
+            },
+            function (error, token) {
+                res.writeHead(200, {'Content-Type': 'text/html'});
+                res.end("<html><h1>Facebook acces_token: " + token.access_token + "</h1></html>");
+            }
+        );
+
 ### FacebookSession#retrieveAccessToken(code, redirect_uri)
 
 Retrieve an access token by providing a code and a redirect_uri. Usually from

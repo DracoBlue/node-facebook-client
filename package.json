@@ -1,6 +1,6 @@
 {
     "name" : "facebook-client",
-    "version": "1.0.0",
+    "version": "1.0.1",
 
     "engines": { "node": ">= 0.2.0" },
 
@@ -9,8 +9,10 @@
     "description": "A javascript (nodejs) implementation of facebook's client for oauth and rest+graph api.",
 
     "author": "DracoBlue <JanS@DracoBlue.de>",
+
     "contributors": [
         { "name": "DracoBlue", "email": "JanS@DracoBlue.de" }
+        { "name": "Pau ramon", "email": "masylum@gmail.com" }
     ],
 
     "keywords": ["facebook", "oauth", "client"],
@@ -21,6 +23,10 @@
     "main" : "lib/facebook-client/index.js",
 
     "bin" : {
+    },
+
+    "dependencies" : {
+        "oauth" : ">=0.8.2"
     },
 
     "repository": {
