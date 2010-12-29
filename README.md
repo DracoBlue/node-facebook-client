@@ -1,7 +1,7 @@
 node-facebook-client README
 ===========================
 
-Version: 1.0.1
+Version: 1.0-dev
 
 Official Site: <http://dracoblue.net/>
 
