@@ -1,7 +1,7 @@
 node-facebook-client README
 ===========================
 
-Version: 1.0.1
+Version: 1.0.0
 
 Official Site: <http://dracoblue.net/>
 
@@ -140,14 +140,6 @@ FacebookSession.
 ### FacebookToolkit.generateSignature(params, api_secret)
 
 Calculates the signature for a given set of parameters and the api_secret.
-
-Changelog
----------
-
-- 1.0.1 (2010/12/29)
-  - added secure url for access_token
-- 1.0.0 (2010/10/05)
-  - Initial release
 
 License
 --------
