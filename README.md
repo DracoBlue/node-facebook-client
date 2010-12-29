@@ -1,7 +1,7 @@
 node-facebook-client README
 ===========================
 
-Version: 1.0-dev
+Version: 1.1.0
 
 Official Site: <http://dracoblue.net/>
 
@@ -12,37 +12,33 @@ What is node-facebook-client?
 The node-facebook-client library is a set of nodejs classes to communicate
 with the rest and graph api provided by facebook.
 
+It works great if you embed the facebook connect button on your page and
+want to use the rest + graph api by facebook. Oauth-support may work but
+is not tested that well.
+
 The library is not officially created nor maintained by facebook. It is
 created by dracoblue and licensed under the terms of MIT License.
 
 ## Example
 
-This small example uses the FacebookClient class to retrieve the name of a user.
+This small example uses the FacebookClient class to retrieve the name of a
+user. requst.headers are the headers from the server request.
 
-    // Input: session_key : the session_key, taken from fb cookies)
-    //        user_id     : facebook id of a user for users.getInfo
-    
     var FacebookClient = require("facebook-client").FacebookClient;
-
+    
     var facebook_client = new FacebookClient(
-        "yourappid",    // configure like your fb app page states
+        "yourappid", // configure like your fb app page states
         "yourappsecret" // configure like your fb app page states
     );
     
-    facebook_client.getSessionByKey(session_key)(function(facebook_session) {
-        facebook_session.restCall("users.getInfo", {
-            fields: "name",
-            uids: user_id
-        })(function(response_users) {
-            if (response_users.error_code) {
-                // User does not exist :(
-            } else {
-                // We got the data!
-                console.log('Hi ' + response_users[0].name + '!');
-            }
-        });    
-    });    
+    facebook_client.getSessionByRequestHeaders(request.headers)(function(facebook_session) {
+        facebook_session.graphCall("/me", {
+        })(function(result) {
+            console.log('Username is:' + result.name);
+        });
+    });
     
+A full example may be executed with: `node run_example.js`. Please configure `yourappid`+`yourappsecret` in that file first.
 
 ## Graph API
 
@@ -144,6 +140,9 @@ Calculates the signature for a given set of parameters and the api_secret.
 Changelog
 ---------
 
+- 1.1.0 (2010/12/29)
+  - removed session_key support
+  - added example
 - 1.0.1 (2010/12/29)
   - added secure url for access_token
 - 1.0.0 (2010/10/05)
