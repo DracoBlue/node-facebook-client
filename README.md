@@ -46,17 +46,13 @@ A full example may be executed with: `node run_example.js`. Please configure `yo
 
 Doing a call against the graph server.
 
-    client.graphCall(path, params)(function(access_token, expires) {
+    client.graphCall(path, params)(function(result) {
         // 
     });
 
 ## Rest API
 
-### FacebookClient#restCall(method, params)
-
-Doing a signed call against the rest api server.
-
-### FacebookSession#restCall(method, params)
+### FacebookSession#restCall(method, params, access_token)
 
 Doing a signed call against the rest api server, by using the session of the
 user.
@@ -68,30 +64,21 @@ user.
         // work with it
     });
 
-### FacebookClient#restCallUnsigned(method, params)
-
-Doing an unsigned call against the rest api server.
-
 ## General API
 
-### FacebookClient#getSessionByKey(session_key)
+### FacebookClient#getSessionByRequestHeaders(request_headers)
 
-Creating a new FacebookSession instance with the given session_key.
+Use the request headers to retrieve the session.
 
-    client.getSessionByKey(session.session_key)(function(session) {
-        // work with the key,
-        session.restCall("users.getInfo", {
-            fields: "name",
-            uids: session.uid
-        })(function(response_users) {
-            // yay, we got it's name: response_users[0].name!
-        });
+    facebook_client.getSessionByRequestHeaders(request.headers)(function(facebook_session) {
+        // session is either undefined or a valid FacebookSession
     });
-    
+
+
 ### FacebookClient#getSessionByAccessToken(access_token)
 
 Creating a new FacebookSession instance with a given access_token.
-    
+
 ### FacebookSession#getId()
 
 Retrieving the id of the session.
@@ -113,7 +100,8 @@ _only_ available in case of a session, which got initialized by an access_token.
 
 ### FacebookClient#getAccessToken(access_params)
 
-Retrieving an AccessToken with the given parameters.
+Retrieving an AccessToken with the given parameters. You don't need to use this
+function if you used `FacebookClient#getSessionByRequestHeaders`.
 
     client.getAccessToken(access_params)(function(access_token, expires) {
         // 
@@ -126,7 +114,10 @@ successful oauth redirect.
 
 ### FacebookSession#injectAccessToken(access_token)
 
-Used to inject an access_token into an existing FacebookSession.
+Used to inject an access_token into an existing FacebookSession. This will enable
+calls like `FacebookSession#restCall` and `FacebookSession#graphCall` to work
+authenticated. It is triggered by `FacebookClient#getSessionByRequestHeaders`
+after successful creation of the session.
 
 ### FacebookSession#getAccessToken(access_params)
 
