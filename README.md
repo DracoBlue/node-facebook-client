@@ -1,7 +1,7 @@
 node-facebook-client README
 ===========================
 
-Version: 1.1.0
+Version: 1.2.0
 
 Official Site: <http://dracoblue.net/>
 
@@ -131,6 +131,8 @@ Calculates the signature for a given set of parameters and the api_secret.
 Changelog
 ---------
 
+- 1.2.0 (2011/03/09)
+  - added support for node 0.4
 - 1.1.0 (2010/12/29)
   - removed session_key support
   - added example
@@ -138,6 +140,12 @@ Changelog
   - added secure url for access_token
 - 1.0.0 (2010/10/05)
   - Initial release
+
+Contributors
+------------
+
+- DracoBlue http://dracoblue.net
+- jharlap https://github.com/jharlap
 
 License
 --------
