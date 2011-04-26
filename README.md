@@ -36,6 +36,9 @@ user. requst.headers are the headers from the server request.
         })(function(result) {
             console.log('Username is:' + result.name);
         });
+        facebook_session.graphCall("/me/feed", {message:"I love node.js!"}, 'POST')(function(result) {
+            console.log('The new feed post id is: ' + result.id);
+        });
     });
     
 A full example may be executed with: `node run_example.js`. Please configure `yourappid`+`yourappsecret` in that file first.
@@ -144,6 +147,7 @@ Changelog
 - 1.3.0
   - added FacebookSession#isValid
   - fixed expires validation fixes #5
+  - added method argument to session.graphCall to permit POSTing in addition to GETting
 - 1.2.0 (2011/03/09)
   - added support for node 0.4
 - 1.1.0 (2010/12/29)
