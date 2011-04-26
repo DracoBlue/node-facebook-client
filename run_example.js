@@ -43,14 +43,22 @@ http.createServer(function (request, response) {
         /*
          * Graph-API
          */
-        facebook_session.graphCall("/me", {
-        })(function(result) {
-            response.writeHead(200, {'Content-Type': 'text/plain'});
-            response.write('By using Graph API:' + "\n");
-            response.write('  Name:' + result.name + "\n");
-            response.write('  Link:' + result.link + "\n");
-            response.end();
-        });    
+        response.writeHead(200, {'Content-Type': 'text/plain'});
+        facebook_session.isValid()(function(is_valid) {
+            if (!is_valid)
+            {
+                response.write('Session expired or user logged out.' + "\n");
+                response.end();
+                return ;
+            }    
+            facebook_session.graphCall("/me", {
+            })(function(result) {
+                response.write('By using Graph API:' + "\n");
+                response.write('  Name:' + result.name + "\n");
+                response.write('  Link:' + result.link + "\n");
+                response.end();
+            });    
+        });
     });   
     
 }).listen(8000);

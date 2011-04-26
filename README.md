@@ -1,11 +1,11 @@
 node-facebook-client README
 ===========================
 
-Version: 1.2.0
+Version: 1.3.0
 
 Official Site: <http://dracoblue.net/>
 
-node-facebook-client is copyright 2010 by DracoBlue <http://dracoblue.net>
+node-facebook-client is copyright 2010-2011 by DracoBlue <http://dracoblue.net>
 
 What is node-facebook-client?
 -----------------------------
@@ -74,6 +74,16 @@ Use the request headers to retrieve the session.
         // session is either undefined or a valid FacebookSession
     });
 
+### FacebookSession#isValid()
+
+Calls `/me` on the graph api, to check wheter the session is still valid or the
+user has already logged out.
+
+    session.isValid()(function(is_valid) {
+        // is either true or false
+    });
+
+Remember to do that only when necessary and not on every request.
 
 ### FacebookClient#getSessionByAccessToken(access_token)
 
@@ -131,6 +141,9 @@ Calculates the signature for a given set of parameters and the api_secret.
 Changelog
 ---------
 
+- 1.3.0
+  - added FacebookSession#isValid
+  - fixed expires validation fixes #5
 - 1.2.0 (2011/03/09)
   - added support for node 0.4
 - 1.1.0 (2010/12/29)
