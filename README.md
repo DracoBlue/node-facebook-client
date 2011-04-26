@@ -45,13 +45,15 @@ A full example may be executed with: `node run_example.js`. Please configure `yo
 
 ## Graph API
 
-### FacebookClient#graphCall(path, params)
+### FacebookClient#graphCall(path, params[, method])
 
 Doing a call against the graph server.
 
     client.graphCall(path, params)(function(result) {
         // 
     });
+
+The parameter `method` can be omited and is 'GET' in this case.
 
 ## Rest API
 
@@ -144,7 +146,7 @@ Calculates the signature for a given set of parameters and the api_secret.
 Changelog
 ---------
 
-- 1.3.0
+- 1.3.0 (2011/04/26)
   - added FacebookSession#isValid
   - fixed expires validation fixes #5
   - added method argument to session.graphCall to permit POSTing in addition to GETting
