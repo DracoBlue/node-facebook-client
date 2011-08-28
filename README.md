@@ -53,7 +53,7 @@ Doing a call against the graph server.
         // 
     });
 
-The parameter `method` can be omited and is 'GET' in this case.
+The parameter `method` can be omitted and is 'GET' in this case.
 
 ## Rest API
 
@@ -81,7 +81,7 @@ Use the request headers to retrieve the session.
 
 ### FacebookSession#isValid()
 
-Calls `/me` on the graph api, to check wheter the session is still valid or the
+Calls `/me` on the graph api, to check whether the session is still valid or the
 user has already logged out.
 
     session.isValid()(function(is_valid) {
