@@ -49,7 +49,7 @@ A full example may be executed with: `node run_example.js`. Please configure `yo
 
 Doing a call against the graph server.
 
-    client.graphCall(path, params)(function(result) {
+    client.graphCall(path, params, method)(function(result) {
         // 
     });
 
