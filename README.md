@@ -1,7 +1,7 @@
 node-facebook-client README
 ===========================
 
-Version: 1.2.0
+Version: 1.3.0
 
 Official Site: <http://dracoblue.net/>
 
@@ -131,6 +131,8 @@ Calculates the signature for a given set of parameters and the api_secret.
 Changelog
 ---------
 
+- 1.3.0 (2011/10/06)
+  - fixed handling of missing expire time
 - 1.2.0 (2011/03/09)
   - added support for node 0.4
 - 1.1.0 (2010/12/29)
