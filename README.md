@@ -133,6 +133,7 @@ Changelog
 
 - 1.3.0 (2011/10/06)
   - fixed handling of missing expire time
+  - added multiquery-support. #12
 - 1.2.0 (2011/03/09)
   - added support for node 0.4
 - 1.1.0 (2010/12/29)

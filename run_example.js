@@ -1,5 +1,5 @@
 var http = require('http');
-var FacebookClient = require("facebook-client").FacebookClient;
+var FacebookClient = require("./lib/facebook-client").FacebookClient;
 
 http.createServer(function (request, response) {
     var app_id = "yourappid"; // configure like your fb app page states
@@ -48,8 +48,12 @@ http.createServer(function (request, response) {
             response.writeHead(200, {'Content-Type': 'text/plain'});
             response.write('By using Graph API:' + "\n");
             response.write('  Name:' + result.name + "\n");
+            response.write('  Id:' + result.id + "\n");
             response.write('  Link:' + result.link + "\n");
-            response.end();
+            facebook_session.restCall("fql.multiquery", {"queries": {"query1":"SELECT uid FROM user WHERE uid=" + result.id, "query2":"SELECT name, url, pic FROM profile WHERE id IN (SELECT uid FROM #query1)"}}, {})(function() {
+                console.log('multiquery', JSON.stringify(arguments[0]));
+                response.end();
+            });
         });    
     });   
     
