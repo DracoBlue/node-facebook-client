@@ -1,11 +1,11 @@
 node-facebook-client README
 ===========================
 
-Version: 1.3.0
+Version: 1.4.0
 
 Official Site: <http://dracoblue.net/>
 
-node-facebook-client is copyright 2010 by DracoBlue <http://dracoblue.net>
+node-facebook-client is copyright 2010-2011 by DracoBlue <http://dracoblue.net>
 
 What is node-facebook-client?
 -----------------------------
@@ -36,19 +36,24 @@ user. requst.headers are the headers from the server request.
         })(function(result) {
             console.log('Username is:' + result.name);
         });
+        facebook_session.graphCall("/me/feed", {message:"I love node.js!"}, 'POST')(function(result) {
+            console.log('The new feed post id is: ' + result.id);
+        });
     });
     
 A full example may be executed with: `node run_example.js`. Please configure `yourappid`+`yourappsecret` in that file first.
 
 ## Graph API
 
-### FacebookClient#graphCall(path, params)
+### FacebookClient#graphCall(path, params[, method])
 
 Doing a call against the graph server.
 
-    client.graphCall(path, params)(function(result) {
+    client.graphCall(path, params, method)(function(result) {
         // 
     });
+
+The parameter `method` can be omitted and is 'GET' in this case.
 
 ## Rest API
 
@@ -74,6 +79,16 @@ Use the request headers to retrieve the session.
         // session is either undefined or a valid FacebookSession
     });
 
+### FacebookSession#isValid()
+
+Calls `/me` on the graph api, to check whether the session is still valid or the
+user has already logged out.
+
+    session.isValid()(function(is_valid) {
+        // is either true or false
+    });
+
+Remember to do that only when necessary and not on every request.
 
 ### FacebookClient#getSessionByAccessToken(access_token)
 
@@ -131,9 +146,12 @@ Calculates the signature for a given set of parameters and the api_secret.
 Changelog
 ---------
 
-- 1.3.0 (2011/10/06)
-  - fixed handling of missing expire time
+- 1.4.0 (2011/10/06)
   - added multiquery-support. #12
+- 1.3.0 (2011/04/26)
+  - added FacebookSession#isValid
+  - fixed expires validation fixes #5
+  - added method argument to session.graphCall to permit POSTing in addition to GETting
 - 1.2.0 (2011/03/09)
   - added support for node 0.4
 - 1.1.0 (2010/12/29)

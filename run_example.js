@@ -43,18 +43,27 @@ http.createServer(function (request, response) {
         /*
          * Graph-API
          */
-        facebook_session.graphCall("/me", {
-        })(function(result) {
-            response.writeHead(200, {'Content-Type': 'text/plain'});
-            response.write('By using Graph API:' + "\n");
-            response.write('  Name:' + result.name + "\n");
-            response.write('  Id:' + result.id + "\n");
-            response.write('  Link:' + result.link + "\n");
-            facebook_session.restCall("fql.multiquery", {"queries": {"query1":"SELECT uid FROM user WHERE uid=" + result.id, "query2":"SELECT name, url, pic FROM profile WHERE id IN (SELECT uid FROM #query1)"}}, {})(function() {
-                console.log('multiquery', JSON.stringify(arguments[0]));
+        response.writeHead(200, {'Content-Type': 'text/plain'});
+        facebook_session.isValid()(function(is_valid) {
+            if (!is_valid)
+            {
+                response.write('Session expired or user logged out.' + "\n");
                 response.end();
-            });
-        });    
+                return ;
+            }    
+            facebook_session.graphCall("/me", {
+            })(function(result) {
+                response.writeHead(200, {'Content-Type': 'text/plain'});
+                response.write('By using Graph API:' + "\n");
+                response.write('  Name:' + result.name + "\n");
+                response.write('  Id:' + result.id + "\n");
+                response.write('  Link:' + result.link + "\n");
+                facebook_session.restCall("fql.multiquery", {"queries": {"query1":"SELECT uid FROM user WHERE uid=" + result.id, "query2":"SELECT name, url, pic FROM profile WHERE id IN (SELECT uid FROM #query1)"}}, {})(function() {
+                    console.log('multiquery', JSON.stringify(arguments[0]));
+                    response.end();
+                });
+            });    
+        });
     });   
     
 }).listen(8000);
