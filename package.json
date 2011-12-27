@@ -24,13 +24,17 @@
     "bin" : {
     },
 
+	"dependencies" : {
+		"connect": ">= 1.8.5"
+	},
+
     "repository": {
         "type": "git",
         "web": "http://github.com/DracoBlue/node-facebook-client.git"
     },
 
     "bugs": {
-        "web": "http://github.com/DracoBlue/node-facebook-client/issues"
+        "url": "http://github.com/DracoBlue/node-facebook-client/issues"
     },
 
     "licenses" : [
