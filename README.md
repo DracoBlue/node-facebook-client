@@ -1,7 +1,7 @@
 node-facebook-client README
 ===========================
 
-Version: 1.4.0
+Version: 1.5-dev
 
 Official Site: <http://dracoblue.net/>
 
@@ -104,8 +104,7 @@ Retrieving the id of the session.
 
 ### FacebookSession#getMeta()
 
-Tries to retrieve all data from the graph call /me for the user. This is
-_only_ available in case of a session, which got initialized by an access_token.
+Tries to retrieve all data from the graph call /me for the user.
 
     session.getMeta()(function(user_data) {
         // work with it
@@ -146,6 +145,8 @@ Calculates the signature for a given set of parameters and the api_secret.
 Changelog
 ---------
 
+- 1.5-dev
+  - added support for lazy-access-token retrieval if oauth-code is given
 - 1.4.0 (2011/10/06)
   - added multiquery-support. #12
 - 1.3.0 (2011/04/26)
