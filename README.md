@@ -1,7 +1,7 @@
 node-facebook-client README
 ===========================
 
-Version: 1.5-dev
+Version: 1.5.0
 
 Official Site: <http://dracoblue.net/>
 
@@ -145,7 +145,8 @@ Calculates the signature for a given set of parameters and the api_secret.
 Changelog
 ---------
 
-- 1.5-dev
+- 1.5.0 (2012/01/05)
+  - added support for fbsr-cookie from new facebook auth #16
   - added support for lazy-access-token retrieval if oauth-code is given
 - 1.4.0 (2011/10/06)
   - added multiquery-support. #12
@@ -168,6 +169,7 @@ Contributors
 
 - DracoBlue http://dracoblue.net
 - jharlap https://github.com/jharlap
+- liuliu https://github.com/liuliu
 
 License
 --------
