@@ -148,6 +148,7 @@ Changelog
 - 1.5.0 (2012/01/05)
   - added support for fbsr-cookie from new facebook auth #16
   - added support for lazy-access-token retrieval if oauth-code is given
+  - added timeout of 10 seconds for each call against facebook #15
 - 1.4.0 (2011/10/06)
   - added multiquery-support. #12
 - 1.3.0 (2011/04/26)
