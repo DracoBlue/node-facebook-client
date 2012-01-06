@@ -1,7 +1,7 @@
 node-facebook-client README
 ===========================
 
-Version: 1.5.0
+Version: 1.5.1
 
 Official Site: <http://dracoblue.net/>
 
@@ -145,6 +145,9 @@ Calculates the signature for a given set of parameters and the api_secret.
 Changelog
 ---------
 
+- 1.5.1 (2012/01/06)
+  - fixed isValid: throwed an exception, when user_data.error was not existant
+  - added backward compatibility for node 0.4.x, if toString('hex') was missing
 - 1.5.0 (2012/01/05)
   - added support for fbsr-cookie from new facebook auth #16
   - added support for lazy-access-token retrieval if oauth-code is given
