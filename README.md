@@ -1,7 +1,7 @@
 node-facebook-client README
 ===========================
 
-Version: 1.5.1
+Version: 1.5.2
 
 Official Site: <http://dracoblue.net/>
 
@@ -145,6 +145,8 @@ Calculates the signature for a given set of parameters and the api_secret.
 Changelog
 ---------
 
+- 1.5.2 (2012/01/07)
+  - added multiquery-support for graphCall #12
 - 1.5.1 (2012/01/06)
   - fixed isValid: throwed an exception, when user_data.error was not existant
   - added backward compatibility for node 0.4.x, if toString('hex') was missing
