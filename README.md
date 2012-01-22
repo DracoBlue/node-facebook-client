@@ -1,7 +1,7 @@
 node-facebook-client README
 ===========================
 
-Version: 1.5.3
+Version: 1.6-dev
 
 Official Site: <http://dracoblue.net/>
 
@@ -145,6 +145,8 @@ Calculates the signature for a given set of parameters and the api_secret.
 Changelog
 ---------
 
+- 1.6-dev
+  - rewrote requests from multiple parameters to options-object
 - 1.5.3 (2012/01/22)
   - fixed issue with graphCall and method parameter #21
 - 1.5.2 (2012/01/07)
