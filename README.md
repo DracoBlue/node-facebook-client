@@ -1,11 +1,11 @@
 node-facebook-client README
 ===========================
 
-Version: 1.5.2
+Version: 1.5.3
 
 Official Site: <http://dracoblue.net/>
 
-node-facebook-client is copyright 2010-2011 by DracoBlue <http://dracoblue.net>
+node-facebook-client is copyright 2010-2012 by DracoBlue <http://dracoblue.net>
 
 What is node-facebook-client?
 -----------------------------
@@ -145,6 +145,8 @@ Calculates the signature for a given set of parameters and the api_secret.
 Changelog
 ---------
 
+- 1.5.3 (2012/01/22)
+  - fixed issue with graphCall and method parameter #21
 - 1.5.2 (2012/01/07)
   - added multiquery-support for graphCall #12
 - 1.5.1 (2012/01/06)
@@ -176,6 +178,7 @@ Contributors
 - DracoBlue http://dracoblue.net
 - jharlap https://github.com/jharlap
 - liuliu https://github.com/liuliu
+- kaareal https://github.com/kaareal
 
 License
 --------
