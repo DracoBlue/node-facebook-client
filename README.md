@@ -28,7 +28,10 @@ user. requst.headers are the headers from the server request.
     
     var facebook_client = new FacebookClient(
         "yourappid", // configure like your fb app page states
-        "yourappsecret" // configure like your fb app page states
+        "yourappsecret", // configure like your fb app page states
+        {
+            "timeout": 10000 // modify the global timeout for facebook calls (Default: 10000)
+        }
     );
     
     facebook_client.getSessionByRequestHeaders(request.headers)(function(facebook_session) {
@@ -45,7 +48,7 @@ A full example may be executed with: `node run_example.js`. Please configure `yo
 
 ## Graph API
 
-### FacebookClient#graphCall(path, params[, method])
+### FacebookClient#graphCall(path, params[, method, options])
 
 Doing a call against the graph server.
 
@@ -53,11 +56,13 @@ Doing a call against the graph server.
         // 
     });
 
-The parameter `method` can be omitted and is 'GET' in this case.
+The parameter `method` can be omitted and is 'GET' in this case. You may use
+`options.timeout = 5000` to modify the timeout until the request will be
+canceled. 
 
 ## Rest API
 
-### FacebookSession#restCall(method, params, access_token)
+### FacebookSession#restCall(method, params, access_token[, options])
 
 Doing a signed call against the rest api server, by using the session of the
 user.
@@ -68,6 +73,9 @@ user.
     })(function(response_users) {
         // work with it
     });
+
+You may use `options.timeout = 5000` to modify the timeout until the request
+will be canceled. 
 
 ## General API
 
@@ -147,6 +155,7 @@ Changelog
 
 - 1.6-dev
   - rewrote requests from multiple parameters to options-object
+  - added `options.timeout` for `restCall` and `graphCall`
 - 1.5.3 (2012/01/22)
   - fixed issue with graphCall and method parameter #21
 - 1.5.2 (2012/01/07)
@@ -181,6 +190,7 @@ Contributors
 - jharlap https://github.com/jharlap
 - liuliu https://github.com/liuliu
 - kaareal https://github.com/kaareal
+- leoasis https://github.com/leoasis
 
 License
 --------
