@@ -155,7 +155,8 @@ Changelog
 
 - 1.6-dev
   - rewrote requests from multiple parameters to options-object
-  - added `options.timeout` for `restCall` and `graphCall`
+  - added `options.timeout` for `restCall` and `graphCall` #22
+  - fixed error handling in case the timeout is reached #22
 - 1.5.3 (2012/01/22)
   - fixed issue with graphCall and method parameter #21
 - 1.5.2 (2012/01/07)
