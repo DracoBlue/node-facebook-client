@@ -1,6 +1,6 @@
 {
     "name" : "facebook-client",
-    "version": "1.5.2",
+    "version": "1.6.0",
 
     "engines": { "node": ">= 0.4.0" },
 
@@ -12,7 +12,9 @@
     "contributors": [
         { "name": "DracoBlue", "email": "JanS@DracoBlue.de" },
         { "name": "jharlap" },
-        { "name": "liuliu" }
+        { "name": "liuliu" },
+        { "name": "kaareal" },
+        { "name": "leoasis" }
     ],
 
     "keywords": ["facebook", "oauth", "client"],
